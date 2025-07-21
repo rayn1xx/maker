@@ -1,13 +1,159 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Резюме – Karthik SR</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    defer
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    defer
+  ></script>
+</head>
+<body>
+  <div class="resume">
+    <!-- PHOTO / GREETING / LANGUAGES -->
+    <div class="photo-card">
+      <img src="img/karthik.jpg" alt="Karthik SR">
+    </div>
+    <div class="greeting-card">
+      <div class="greeting">Hello 👋 I’m</div>
+      <h1 contenteditable id="name">Karthik SR</h1>
+      <p contenteditable id="role">UX/UI Designer</p>
+    </div>
+    <div class="languages-card">
+      <h2>Languages</h2>
+      <ul>
+        <li>
+          <span contenteditable id="lang-1">English</span>
+          <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </li>
+        <li>
+          <span contenteditable id="lang-2">Malayalam</span>
+          <div class="bar"><div class="fill" style="width:90%"></div></div>
+        </li>
+        <li>
+          <span contenteditable id="lang-3">Hindi</span>
+          <div class="bar"><div class="fill" style="width:75%"></div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- EXPERIENCE / TOOLS -->
+    <div class="experience-card">
+      <h2>Experience</h2>
+      <div class="item featured">
+        <div class="head">
+          <time>Jun 2023 – Present</time>
+          <span class="tag">most recent</span>
+        </div>
+        <h3 contenteditable id="exp1-title">Marketing Manager</h3>
+        <p contenteditable id="exp1-company">Pankayam | Full‑time</p>
+        <ul contenteditable id="exp1-desc">
+          <li>Strategy development and planning of campaigns that promote the business and generate genuine traffic.</li>
+          <li>SEO Content Creation for Blogs, Websites, Social media.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="head"><time>2017 – Present</time></div>
+        <h3 contenteditable id="exp2-title">Graphic / Web designer</h3>
+        <p contenteditable id="exp2-company">Freelance</p>
+        <ul contenteditable id="exp2-desc">
+          <li>Development of internal projects from scratch, product design of brands.</li>
+          <li>Landing page, webapps and hybrid apps.</li>
+          <li>Coordinating with clients, designers, printers, colleagues as necessary.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="head"><time>Sep 2021 – Jun 2023</time></div>
+        <h3 contenteditable id="exp3-title">Legal Assistant</h3>
+        <p contenteditable id="exp3-company">Law Firm | Intern</p>
+        <ul contenteditable id="exp3-desc">
+          <li>Provide administrative support to lawyer and enhance office effectiveness.</li>
+          <li>Handle communication with clients, witnesses etc.</li>
+          <li>Prepare case briefs and summarize depositions, interrogatories and testimony.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tools-card">
+      <h2>Tools</h2>
+      <div class="group" data-group="design">
+        <div class="label">design</div>
+        <img src="img/tools/figma.png" alt="Figma">
+        <img src="img/tools/photoshop.png" alt="Photoshop">
+        <img src="img/tools/illustrator.png" alt="Illustrator">
+      </div>
+      <div class="group" data-group="no-code">
+        <div class="label">no-code</div>
+        <img src="img/tools/notion.png" alt="Notion">
+        <img src="img/tools/webflow.png" alt="Webflow">
+        <img src="img/tools/wordpress.png" alt="WordPress">
+      </div>
+      <div class="group" data-group="artificial-intelligence">
+        <div class="label">artificial intelligence</div>
+        <img src="img/tools/openai.png" alt="OpenAI">
+        <img src="img/tools/midjourney.png" alt="Midjourney">
+      </div>
+      <div class="add-tool">
+        <select id="tool-group-select">
+          <option value="design">design</option>
+          <option value="no-code">no-code</option>
+          <option value="artificial-intelligence">artificial intelligence</option>
+        </select>
+        <input id="new-tool-url" placeholder="Icon URL">
+        <input id="new-tool-alt" placeholder="Alt text">
+        <button id="add-tool-btn" class="ripple">Add Tool</button>
+      </div>
+    </div>
+
+    <!-- EDUCATION / INTERESTS -->
+    <div class="education-card">
+      <h2>Education</h2>
+      <div class="item featured">
+        <time>2023</time>
+        <h3 contenteditable id="edu1-title">UI/UX</h3>
+        <p contenteditable id="edu1-place">Coursera</p>
+      </div>
+      <div class="item">
+        <time>2017 – 2022</time>
+        <h3 contenteditable id="edu2-title">Law</h3>
+        <p contenteditable id="edu2-place">University of Kerala</p>
+      </div>
+      <div class="item">
+        <time>2017</time>
+        <h3 contenteditable id="edu3-title">Graphic design</h3>
+        <p contenteditable id="edu3-place">Coursera</p>
+      </div>
+    </div>
+    <div class="interests-card">
+      <h2>Interests</h2>
+      <div class="tags" id="interests-container">
+        <span>branding</span><span>design</span><span>photography</span>
+        <span>artificial intelligence</span><span>illustration</span><span>typography</span>
+        <span>social networks</span><span>research</span><span>dron pilot</span><span>games</span>
+      </div>
+      <div class="add-interest">
+        <input id="new-interest" placeholder="New interest">
+        <button id="add-interest-btn" class="ripple">Add Interest</button>
+      </div>
+    </div>
+
+    <!-- CONTACT / DOWNLOAD -->
+    <div class="contact-card" contenteditable id="contact">
+      <p>Let’s chat! I’m ready to work on exciting projects</p>
+      <p>srkarthik.designscape@gmail.com | +34 666 666 666</p>
+    </div>
+    <button id="downloadBtn" class="ripple">Download PDF</button>
+  </div>
+
+  <script src="js/main.js" type="module"></script>
+</body>
 </html>
